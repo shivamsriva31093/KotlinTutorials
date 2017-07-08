@@ -69,3 +69,18 @@ class LinkedList<T> {
         return s + "]"
     }
 }
+
+class LinkedListOperations<T> {
+    fun hasCycle(head:Node<T>?): Boolean {
+        var cur = head?: return false
+        var slow:Node<T>? = cur
+        var fast:Node<T>? = slow
+        while(fast?.next != null && fast.next?.next != null) {
+            slow = slow?.next
+            fast = fast.next
+            if(slow == fast)
+                return true
+        }
+        return false
+    }
+}
